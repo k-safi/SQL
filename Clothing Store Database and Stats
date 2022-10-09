@@ -1,0 +1,37 @@
+--  create a clothing store database
+
+CREATE TABLE store (id INTEGER PRIMARY KEY, item TEXT, aisle INTEGER, price INTEGER, quantity INTEGER);
+
+INSERT INTO store VALUES (1, "high-waist jeans", 2, 26.99, 17);
+INSERT INTO store VALUES (2, "mini skirts", 3, 18.49, 23);
+INSERT INTO store VALUES (3, "blazer dress", 5, 25.19, 11);
+INSERT INTO store VALUES (4, "oversized jogger", 1, 21.50, 14);
+INSERT INTO store VALUES (5, "long-woven scarf", 4, 5.25, 19);
+INSERT INTO store VALUES (6, "boxy cardigan", 4, 8.19, 23);
+INSERT INTO store VALUES (7, "high-waist dad jeans", 2, 16.79, 12);
+INSERT INTO store VALUES (8, "turtle neck", 4, 15.00, 9);
+INSERT INTO store VALUES (9, "satin slip midi dress", 5, 20.80, 11);
+INSERT INTO store VALUES (10, "textured aline skirt", 3, 29.99, 15);
+INSERT INTO store VALUES (11, "seamless high-waisted leggings", 1, 21.00, 18);
+INSERT INTO store VALUES (12, "long sleeve blouse", 6, 26.00, 19);
+INSERT INTO store VALUES (13, "slim satin shirt", 6, 32.00, 7);
+INSERT INTO store VALUES (14, "long zip crop top", 1, 11.30, 24);
+INSERT INTO store VALUES (15, "crinkle beach shirt", 6, 21.99, 17);
+
+-- display the database ordered by price (lowest to highest)
+SELECT * FROM store ORDER BY price asc;
+
+-- what is the average price of items in aisle 3?
+SELECT AVG(price) "avg aisle 3 price"
+FROM store
+WHERE aisle = '3';
+
+-- what are items in aisle 4
+SELECT * FROM store
+WHERE aisle= '4';
+
+-- what are 3 items have most quantity
+SELECT item, price, quantity
+FROM store
+ORDER BY quantity desc
+limit 3;
