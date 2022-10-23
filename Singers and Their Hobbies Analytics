@@ -1,0 +1,48 @@
+/* Create table about the people and what they do here */
+
+CREATE TABLE singers (id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    country TEXT,
+    song_title TEXT,
+    released_year INTEGER);
+    
+INSERT INTO singers (name, country, song_title, released_year) VALUES ('BTS', 'South Korea', 'Jamais Vu', 2019);
+INSERT INTO singers (name, country, song_title, released_year) VALUES ('Justin Bieber', 'Canada', 'Stay', 2021);
+INSERT INTO singers (name, country, song_title, released_year) VALUES ('Taylor Swift', 'United States', 'You Belong With Me', 2008);
+INSERT INTO singers (name, country, song_title, released_year) VALUES ('Ed Sheeran', 'United Kingdom', 'Shape of You', 2017);
+INSERT INTO singers (name, country, song_title, released_year) VALUES ('Demi Lovato', 'United States', 'Sorry Not Sorry', 2017);
+INSERT INTO singers (name, country, song_title, released_year) VALUES ('Camilla Cabello', 'Cuba', 'Havana', 2018);
+INSERT INTO singers (name, country, song_title, released_year) VALUES ('Shawn Mendes', 'Canada', 'Stitches', 2015);
+
+SELECT * FROM singers;
+
+
+CREATE TABLE hobbies (id INTEGER PRIMARY KEY AUTOINCREMENT,
+    singer_id INTEGER,
+    name TEXT);
+
+INSERT INTO hobbies (singer_id, name) VALUES (1, 'playing video games');
+INSERT INTO hobbies (singer_id, name) VALUES (1, 'sleeping');
+INSERT INTO hobbies (singer_id, name) VALUES (2, 'wakeboarding');
+INSERT INTO hobbies (singer_id, name) VALUES (3, 'baking');
+INSERT INTO hobbies (singer_id, name) VALUES (3, 'cooking');
+INSERT INTO hobbies (singer_id, name) VALUES (4, 'writing songs');
+INSERT INTO hobbies (singer_id, name) VALUES (5, 'surfing');
+INSERT INTO hobbies (singer_id, name) VALUES (6, 'playing guitar');
+INSERT INTO hobbies (singer_id, name) VALUES (7, 'playing soccer');
+
+SELECT * FROM hobbies;
+
+-- create a table where it displays each singer next to their hobby
+SELECT singers.name, hobbies.name
+    FROM singers
+    JOIN hobbies
+    ON singers.id = hobbies.singer_id;
+
+-- what is the hobby of a singer realased a song in 2018, and who is the singer?
+SELECT singers.name, hobbies.name
+    FROM singers
+    JOIN hobbies
+    ON singers.id = hobbies.singer_id
+    WHERE released_year = 2018;
+  
